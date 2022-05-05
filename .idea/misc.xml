@@ -8,11 +8,15 @@
         <entry key="app/src/main/res/drawable/login_header.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/search_input.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/text_input.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.13385416666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19293478260869565" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.19293478260869565" />
+        <entry key="app/src/main/res/layout/activity_unauthorized.xml" value="0.5711954752604167" />
         <entry key="app/src/main/res/layout/fragment_history.xml" value="0.19293478260869565" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19293478260869565" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.13385416666666666" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.19293478260869565" />
+        <entry key="app/src/main/res/layout/fragment_signup.xml" value="0.13385416666666666" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.27897435897435896" />
       </map>
     </option>
