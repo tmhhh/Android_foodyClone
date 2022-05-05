@@ -12,8 +12,10 @@
         <entry key="app/src/main/res/layout-w1240dp/content_scrolling.xml" value="0.2392904953145917" />
         <entry key="app/src/main/res/layout-w936dp/content_scrolling.xml" value="0.24077868852459017" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19293478260869565" />
+        <entry key="app/src/main/res/layout/activity_order.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_restaurant_detail.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.19293478260869565" />
+        <entry key="app/src/main/res/layout/buy_with_googlepay_button.xml" value="0.1921875" />
         <entry key="app/src/main/res/layout/content_scrolling.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_history.xml" value="0.19293478260869565" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.33" />
