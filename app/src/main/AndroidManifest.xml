@@ -10,6 +10,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodyClone">
         <activity
+            android:name=".HistoryActivity"
+            android:exported="false"
+            android:label="@string/title_activity_history"
+            android:theme="@style/Theme.FoodyClone.NoActionBar">
+        </activity>
+        <activity
+            android:name=".CartActivity"
+            android:exported="false"
+            android:label="@string/title_activity_cart"
+            android:theme="@style/Theme.FoodyClone.NoActionBar">
+        </activity>
+        <activity
+            android:name=".OrderActivity"
+            android:exported="false"
+            android:label="@string/title_activity_order"
+            android:theme="@style/Theme.FoodyClone">
+
+        </activity>
+
+        <!-- This element is required to enable Google Pay in your app. -->
+<!--        <meta-data-->
+<!--            android:name="com.google.android.gms.wallet.api.enabled"-->
+<!--            android:value="true" />-->
+
+        <activity
             android:name=".RestaurantDetail"
             android:exported="false"
             android:label="@string/title_activity_restaurant_detail"
