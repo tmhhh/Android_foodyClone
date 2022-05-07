@@ -11,6 +11,11 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
+        android:id="@+id/restaurantsFragment"
+        android:name="hcmute.spkt.truongminhhoang.foodyclone.RestaurantsFragment"
+        android:label="fragment_restaurants"
+        tools:layout="@layout/fragment_restaurants" />
+    <fragment
         android:id="@+id/historyFragment"
         android:name="hcmute.spkt.truongminhhoang.foodyclone.HistoryFragment"
         android:label="fragment_history"

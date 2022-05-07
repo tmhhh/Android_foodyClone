@@ -5,10 +5,23 @@
     android:layout_height="match_parent"
     tools:context=".HistoryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="History" />
+        android:gravity="center"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shipper" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="44dp"
+            android:textColor="@color/red"
+            android:text="No History Orders"/>
+    </LinearLayout>
+
 
 </FrameLayout>

@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".RestaurantDetail"
+    tools:showIn="@layout/activity_restaurant_detail">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="5dp"
+            app:tabSelectedTextColor="@color/red"
+            app:tabIndicatorColor="@color/red"
+            >
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delivery" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Info" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Review" />
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Photo" />
+        </com.google.android.material.tabs.TabLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/headerContainer"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_height="wrap_content">
+            <EditText
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:id="@+id/etSearch"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_input"
+                android:hint="Bò tái chanh"
+                android:paddingHorizontal="40dp"
+                android:textColorHint="#999"
+                android:paddingVertical="10dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"/>
+            <ImageView
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_centerVertical="true"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_search_category_default"
+                android:layout_marginLeft="10dp"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/dishContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/dishes_1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/dishInfoContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cháo Sườn Chú Chen"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Avg. 70k"
+                    android:textColor="@color/blue"
+                    android:textSize="13dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Food"
+                    android:textSize="10dp" />
+            </LinearLayout>
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:orientation="horizontal" >
+                <Button
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/round_button"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="+"
+                    android:layout_marginRight="15dp"
+                    android:layout_alignParentRight="true"
+                    android:textColor="#fff" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dishContainer2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/dishContainer">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/dishes_1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/dishInfoContainer2"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cháo Sườn Chú Chen"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Avg. 70k"
+                    android:textColor="@color/blue"
+                    android:textSize="13dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Food"
+                    android:textSize="10dp" />
+            </LinearLayout>
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:orientation="horizontal" >
+                <Button
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/round_button"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="+"
+                    android:layout_marginRight="15dp"
+                    android:layout_alignParentRight="true"
+                    android:textColor="#fff" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dishContainer3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/dishContainer2">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/dishes_1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <LinearLayout
+                android:id="@+id/dishInfoContainer3"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cháo Sườn Chú Chen"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Avg. 70k"
+                    android:textColor="@color/blue"
+                    android:textSize="13dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Food"
+                    android:textSize="10dp" />
+            </LinearLayout>
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:orientation="horizontal" >
+                <Button
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/round_button"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="+"
+                    android:layout_marginRight="15dp"
+                    android:layout_alignParentRight="true"
+                    android:textColor="#fff" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dishContainer4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/dishContainer3">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/dishes_1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <LinearLayout
+                android:id="@+id/dishInfoContainer4"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cháo Sườn Chú Chen"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Avg. 70k"
+                    android:textColor="@color/blue"
+                    android:textSize="13dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Food"
+                    android:textSize="10dp" />
+            </LinearLayout>
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:orientation="horizontal" >
+                <Button
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/round_button"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="+"
+                    android:layout_marginRight="15dp"
+                    android:layout_alignParentRight="true"
+                    android:textColor="#fff" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

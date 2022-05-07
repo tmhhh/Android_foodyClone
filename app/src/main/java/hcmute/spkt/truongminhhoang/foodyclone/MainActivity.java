@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.homeFragment:
                     replaceFragment(new HomeFragment());
                     break;
+                case R.id.restaurantsFragment:
+                    replaceFragment(new RestaurantsFragment());
+                    break;
                 case R.id.historyFragment:
                     replaceFragment(new HistoryFragment());
                     break;
