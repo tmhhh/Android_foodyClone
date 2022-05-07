@@ -1,6 +1,7 @@
 package hcmute.spkt.truongminhhoang.foodyclone;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,7 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,7 +65,7 @@ public class LoginFragment extends Fragment {
 
 
     }
-
+    Database db;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -70,12 +73,36 @@ public class LoginFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_login, container, false);
 
         //
+        EditText etUsername=view.findViewById(R.id.etUsername);
+        EditText etPassword=view.findViewById(R.id.etPassword);
         Button btnLogin=(Button) view.findViewById(R.id.btnLogin);
+        db = new Database(getActivity(),"Foody.sqlite",null,1);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getActivity(), MainActivity.class);
-                getActivity().startActivity(myIntent);
+                boolean isError=false;
+                String userName=etUsername.getText().toString();
+                String password=etPassword.getText().toString();
+                if(userName.trim().isEmpty()){
+                    etUsername.setError("This field is required");
+                    isError=true;
+                }
+                if(password.trim().isEmpty()){
+                    etPassword.setError("This field is required");
+                    isError=true;
+                }
+                if(isError) return;
+                String checkAccountExistQuery="SELECT * FROM User WHERE userName='"+userName+"' AND password='"+password+"'";
+                Cursor cursor=db.GetData(checkAccountExistQuery);
+                if(cursor.getCount()>0){
+                    Toast.makeText(getActivity(), "Login successfully !!!", Toast.LENGTH_SHORT).show();
+                    Intent myIntent = new Intent(getActivity(), MainActivity.class);
+                    getActivity().startActivity(myIntent);
+                }
+                else{
+                    Toast.makeText(getActivity(), "Username or password is incorrect", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 

@@ -32,7 +32,7 @@
                     android:radius="5dp"
                     />
                 <solid
-                    android:color="#00FFFFFF"
+                    android:color="@color/white"
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"/>
                 <padding
