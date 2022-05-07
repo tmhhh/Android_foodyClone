@@ -23,10 +23,10 @@
                 app:contentScrim="@color/red"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:statusBarScrim="@color/red"
-                app:toolbarId="@+id/toolbar">
+                app:toolbarId="@+id/restaurantDetailToolbar">
 
                 <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
+                    android:id="@+id/restaurantDetailToolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     app:layout_collapseMode="pin"
@@ -56,15 +56,6 @@
                                 android:text="Restaurant Address"
                                 android:textSize="14dp" />
                         </LinearLayout>
-<!--                        <Button-->
-<!--                            android:id="@+id/restaurantDetailBackBtn"-->
-<!--                            android:background="@drawable/round_button"-->
-<!--                            android:text="<"-->
-<!--                            android:layout_width="45dp"-->
-<!--                            android:layout_height="45dp"-->
-<!--                            android:layout_marginRight="10dp"-->
-<!--                            android:layout_alignParentRight="true"-->
-<!--                            android:layout_centerInParent="true"/>-->
                     </RelativeLayout>
 
                 </androidx.appcompat.widget.Toolbar>

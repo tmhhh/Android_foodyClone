@@ -28,7 +28,7 @@ public class CartActivity extends AppCompatActivity {
         binding = ActivityCartBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setSupportActionBar(binding.toolbar);
+        setSupportActionBar(binding.cartToolbar);
 
 //        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_cart);
 //        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
