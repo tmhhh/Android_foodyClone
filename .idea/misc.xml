@@ -22,20 +22,21 @@
         <entry key="app/src/main/res/layout/activity_order.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_restaurant_detail.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.19293478260869565" />
+        <entry key="app/src/main/res/layout/activity_unauthorized.xml" value="0.5711954752604167" />
         <entry key="app/src/main/res/layout/buy_with_googlepay_button.xml" value="0.1921875" />
         <entry key="app/src/main/res/layout/content_cart.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/content_scrolling.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_cart.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.18110435663627153" />
-        <entry key="app/src/main/res/layout/activity_unauthorized.xml" value="0.5711954752604167" />
         <entry key="app/src/main/res/layout/fragment_history.xml" value="0.19293478260869565" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_ongoing.xml" value="0.17760416666666667" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.13385416666666666" />
+        <entry key="app/src/main/res/layout/fragment_ongoing.xml" value="0.17760416666666667" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.19293478260869565" />
+        <entry key="app/src/main/res/layout/fragment_restaurants.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.18110435663627153" />
         <entry key="app/src/main/res/layout/fragment_signup.xml" value="0.13385416666666666" />
+        <entry key="app/src/main/res/layout/restaurant_list_item_layout.xml" value="0.31929347826086957" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.27897435897435896" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.159" />
       </map>

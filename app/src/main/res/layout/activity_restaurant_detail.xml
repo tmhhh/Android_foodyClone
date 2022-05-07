@@ -14,7 +14,7 @@
             android:theme="@style/Theme.FoodyClone.AppBarOverlay">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:id="@+id/toolbar_layout"
+                android:id="@+id/restaurantDetailImage"
                 style="@style/Widget.MaterialComponents.Toolbar.Primary"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -31,30 +31,44 @@
                     android:layout_height="?attr/actionBarSize"
                     app:layout_collapseMode="pin"
                     app:popupTheme="@style/Theme.FoodyClone.PopupOverlay">
-
-                    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:layout_height="match_parent">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/restaurantName"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Restaurant Name"
-                            android:textColor="@color/white"
-                            android:textSize="24dp"
-                            android:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/restaurantName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Restaurant Name"
+                                android:textColor="@color/white"
+                                android:textSize="24dp"
+                                android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/restaurantAddress"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/white"
-                            android:text="Restaurant Address"
-                            android:textSize="14dp" />
-                    </LinearLayout>
+                            <TextView
+                                android:id="@+id/restaurantAddress"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                android:text="Restaurant Address"
+                                android:textSize="14dp" />
+                        </LinearLayout>
+<!--                        <Button-->
+<!--                            android:id="@+id/restaurantDetailBackBtn"-->
+<!--                            android:background="@drawable/round_button"-->
+<!--                            android:text="<"-->
+<!--                            android:layout_width="45dp"-->
+<!--                            android:layout_height="45dp"-->
+<!--                            android:layout_marginRight="10dp"-->
+<!--                            android:layout_alignParentRight="true"-->
+<!--                            android:layout_centerInParent="true"/>-->
+                    </RelativeLayout>
+
                 </androidx.appcompat.widget.Toolbar>
+
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>
 
