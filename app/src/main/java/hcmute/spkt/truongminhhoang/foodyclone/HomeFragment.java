@@ -1,5 +1,6 @@
 package hcmute.spkt.truongminhhoang.foodyclone;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,8 +11,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import hcmute.spkt.truongminhhoang.foodyclone.adapters.RestaurantListAdapter;
+import hcmute.spkt.truongminhhoang.foodyclone.classes.Restaurant;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -65,6 +75,32 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_home, container, false);
+        List<Restaurant> restaurants = getListData();
+        final ListView listView = (ListView) view.findViewById(R.id.restaurantsLv);
+        listView.setAdapter(new RestaurantListAdapter(getActivity(), restaurants));
+
+        // When the user clicks on the ListItem
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> a, View v, int position, long id) {
+                Restaurant restaurant = (Restaurant) listView.getItemAtPosition(position);
+                Toast.makeText(getActivity(), "Selected :" + " " + restaurant.toString(), Toast.LENGTH_LONG).show();
+                Intent myIntent = new Intent(getActivity(), RestaurantDetail.class);
+                myIntent.putExtra("restaurant", restaurant);
+                getActivity().startActivity(myIntent);
+            }
+        });
+
             return view;
+    }
+    private List<Restaurant> getListData() {
+        List<Restaurant> list = new ArrayList<Restaurant>();
+
+        list.add(new Restaurant("res1" ,"pho24", "Pho 24", "Food", "40.000", "Nhiều chi nhánh"));
+        list.add(new Restaurant("res2" ,"dookki", "Dookki", "Food", "139.000", "Nhiều chi nhánh"));
+        list.add(new Restaurant("res3" ,"hadilao", "Hadilao", "Food", "500.000", "Nhiều chi nhánh"));
+
+        return list;
     }
 }

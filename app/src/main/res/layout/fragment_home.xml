@@ -5,6 +5,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".HomeFragment">
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/headerContainer"
         app:layout_constraintTop_toTopOf="parent"
@@ -240,207 +244,231 @@
                 />
         </LinearLayout>
     </LinearLayout>
-    //DISH
+    //RESTAURANT LIST
+<!--    <ListView-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/foodCategories"-->
+<!--        android:id="@+id/restaurantsLv"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:padding="10dp"-->
+<!--        app:layout_constraintVertical_bias="0.0"-->
+<!--        android:layout_height="0dp" />-->
+//
 
-    <ScrollView
+
+    <ListView
+        scroll
+        android:id="@+id/restaurantsLv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/foodCategories"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="-16dp">
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/foodCategories"
+            app:layout_constraintVertical_bias="0.0"
+            tools:layout_editor_absoluteX="-16dp"
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        />
+<!--    </ScrollView>-->
 
-            <LinearLayout
-                android:id="@+id/dishContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:orientation="horizontal">
+    <!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:padding="10dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/foodCategories"-->
+<!--        app:layout_constraintVertical_bias="0.0"-->
+<!--        tools:layout_editor_absoluteX="-16dp">-->
 
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="100dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/dishes_1"
-                    app:layout_constraintTop_toTopOf="parent" />
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
 
-                <LinearLayout
-                    android:id="@+id/dishInfoContainer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_marginLeft="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical">
+<!--            <LinearLayout-->
+<!--                android:id="@+id/dishContainer"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="15dp"-->
+<!--                android:orientation="horizontal">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Cháo Sườn Chú Chen"
-                        android:textStyle="bold" />
+<!--                <ImageView-->
+<!--                    android:layout_width="120dp"-->
+<!--                    android:layout_height="100dp"-->
+<!--                    android:scaleType="fitXY"-->
+<!--                    android:src="@drawable/dishes_1"-->
+<!--                    app:layout_constraintTop_toTopOf="parent" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Avg. 70k"
-                        android:textColor="@color/blue"
-                        android:textSize="13dp" />
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/dishInfoContainer"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="100dp"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:orientation="vertical">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Food"
-                        android:textSize="10dp" />
-                </LinearLayout>
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Cháo Sườn Chú Chen"-->
+<!--                        android:textStyle="bold" />-->
 
-            </LinearLayout>
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Avg. 70k"-->
+<!--                        android:textColor="@color/blue"-->
+<!--                        android:textSize="13dp" />-->
 
-            <LinearLayout
-                android:id="@+id/dishContainer2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/dishContainer">
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Food"-->
+<!--                        android:textSize="10dp" />-->
+<!--                </LinearLayout>-->
 
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="100dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/dishes_1"
-                    app:layout_constraintTop_toTopOf="parent" />
+<!--            </LinearLayout>-->
 
-                <LinearLayout
-                    android:id="@+id/dishInfoContainer2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_marginLeft="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical">
+<!--            <LinearLayout-->
+<!--                android:id="@+id/dishContainer2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="15dp"-->
+<!--                android:orientation="horizontal"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/dishContainer">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Cháo Sườn Chú Chen"
-                        android:textStyle="bold" />
+<!--                <ImageView-->
+<!--                    android:layout_width="120dp"-->
+<!--                    android:layout_height="100dp"-->
+<!--                    android:scaleType="fitXY"-->
+<!--                    android:src="@drawable/dishes_1"-->
+<!--                    app:layout_constraintTop_toTopOf="parent" />-->
 
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/dishInfoContainer2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="100dp"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:orientation="vertical">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Avg. 70k"
-                        android:textColor="@color/blue"
-                        android:textSize="13dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Food"
-                        android:textSize="10dp" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/dishContainer3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/dishContainer2">
-
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="100dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/dishes_1"
-                    app:layout_constraintTop_toTopOf="parent" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Cháo Sườn Chú Chen"-->
+<!--                        android:textStyle="bold" />-->
 
 
-                <LinearLayout
-                    android:id="@+id/dishInfoContainer3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_marginLeft="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical">
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Avg. 70k"-->
+<!--                        android:textColor="@color/blue"-->
+<!--                        android:textSize="13dp" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Cháo Sườn Chú Chen"
-                        android:textStyle="bold" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Food"-->
+<!--                        android:textSize="10dp" />-->
+<!--                </LinearLayout>-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Avg. 70k"
-                        android:textColor="@color/blue"
-                        android:textSize="13dp" />
+<!--            </LinearLayout>-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Food"
-                        android:textSize="10dp" />
-                </LinearLayout>
+<!--            <LinearLayout-->
+<!--                android:id="@+id/dishContainer3"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="15dp"-->
+<!--                android:orientation="horizontal"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/dishContainer2">-->
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/dishContainer4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/dishContainer3">
-
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="100dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/dishes_1"
-                    app:layout_constraintTop_toTopOf="parent" />
+<!--                <ImageView-->
+<!--                    android:layout_width="120dp"-->
+<!--                    android:layout_height="100dp"-->
+<!--                    android:scaleType="fitXY"-->
+<!--                    android:src="@drawable/dishes_1"-->
+<!--                    app:layout_constraintTop_toTopOf="parent" />-->
 
 
-                <LinearLayout
-                    android:id="@+id/dishInfoContainer4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_marginLeft="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical">
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/dishInfoContainer3"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="100dp"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:orientation="vertical">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Cháo Sườn Chú Chen"
-                        android:textStyle="bold" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Cháo Sườn Chú Chen"-->
+<!--                        android:textStyle="bold" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Avg. 70k"
-                        android:textColor="@color/blue"
-                        android:textSize="13dp" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Avg. 70k"-->
+<!--                        android:textColor="@color/blue"-->
+<!--                        android:textSize="13dp" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Food"
-                        android:textSize="10dp" />
-                </LinearLayout>
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Food"-->
+<!--                        android:textSize="10dp" />-->
+<!--                </LinearLayout>-->
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
 
-        </LinearLayout>
+<!--            <LinearLayout-->
+<!--                android:id="@+id/dishContainer4"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="15dp"-->
+<!--                android:orientation="horizontal"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/dishContainer3">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="120dp"-->
+<!--                    android:layout_height="100dp"-->
+<!--                    android:scaleType="fitXY"-->
+<!--                    android:src="@drawable/dishes_1"-->
+<!--                    app:layout_constraintTop_toTopOf="parent" />-->
 
 
-    </ScrollView>
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/dishInfoContainer4"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="100dp"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Cháo Sườn Chú Chen"-->
+<!--                        android:textStyle="bold" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Avg. 70k"-->
+<!--                        android:textColor="@color/blue"-->
+<!--                        android:textSize="13dp" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Food"-->
+<!--                        android:textSize="10dp" />-->
+<!--                </LinearLayout>-->
+
+<!--            </LinearLayout>-->
+
+<!--        </LinearLayout>-->
+
+
+<!--    </ScrollView>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

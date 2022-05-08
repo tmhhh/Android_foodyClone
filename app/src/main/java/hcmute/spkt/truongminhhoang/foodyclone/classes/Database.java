@@ -1,4 +1,4 @@
-package hcmute.spkt.truongminhhoang.foodyclone;
+package hcmute.spkt.truongminhhoang.foodyclone.classes;
 
 import android.content.Context;
 import android.database.Cursor;

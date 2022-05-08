@@ -1,4 +1,4 @@
-package hcmute.spkt.truongminhhoang.foodyclone;
+package hcmute.spkt.truongminhhoang.foodyclone.classes;
 
 public class User {
     private int id;

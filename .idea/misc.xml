@@ -3,42 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="../../../../layout/custom_preview.xml" value="0.22083333333333333" />
-        <entry key="app/src/main/res/drawable-v21/googlepay_button_background.xml" value="0.333" />
-        <entry key="app/src/main/res/drawable/common_button.xml" value="0.333" />
-        <entry key="app/src/main/res/drawable/googlepay_button_background.xml" value="0.333" />
         <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/login_button.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/login_header.xml" value="0.18" />
-        <entry key="app/src/main/res/drawable/round_button.xml" value="0.333" />
         <entry key="app/src/main/res/drawable/search_input.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/text_input.xml" value="0.18" />
-        <entry key="app/src/main/res/layout-w1240dp/content_scrolling.xml" value="0.2392904953145917" />
-        <entry key="app/src/main/res/layout-w936dp/content_scrolling.xml" value="0.24077868852459017" />
-        <entry key="app/src/main/res/layout/activity_cart.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_history.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.13385416666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19293478260869565" />
-        <entry key="app/src/main/res/layout/activity_order.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/activity_restaurant_detail.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_restaurant_detail.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.19293478260869565" />
         <entry key="app/src/main/res/layout/activity_unauthorized.xml" value="0.5711954752604167" />
-        <entry key="app/src/main/res/layout/buy_with_googlepay_button.xml" value="0.1921875" />
-        <entry key="app/src/main/res/layout/content_cart.xml" value="0.19270833333333334" />
-        <entry key="app/src/main/res/layout/content_scrolling.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_cart.xml" value="0.19270833333333334" />
-        <entry key="app/src/main/res/layout/fragment_first.xml" value="0.18110435663627153" />
+        <entry key="app/src/main/res/layout/content_scrolling.xml" value="0.13779128672745694" />
         <entry key="app/src/main/res/layout/fragment_history.xml" value="0.19293478260869565" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.13385416666666666" />
-        <entry key="app/src/main/res/layout/fragment_ongoing.xml" value="0.17760416666666667" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.19293478260869565" />
-        <entry key="app/src/main/res/layout/fragment_restaurants.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_second.xml" value="0.18110435663627153" />
+        <entry key="app/src/main/res/layout/fragment_restaurants.xml" value="0.13779128672745694" />
         <entry key="app/src/main/res/layout/fragment_signup.xml" value="0.13385416666666666" />
-        <entry key="app/src/main/res/layout/restaurant_list_item_layout.xml" value="0.31929347826086957" />
+        <entry key="app/src/main/res/layout/restaurant_list_item_layout.xml" value="0.13779128672745694" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.27897435897435896" />
-        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.159" />
       </map>
     </option>
   </component>
@@ -47,12 +30,5 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.19270833333333334" />
-      </ProjectState>
-    </option>
   </component>
 </project>
