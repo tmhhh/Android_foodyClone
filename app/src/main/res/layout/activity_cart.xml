@@ -25,76 +25,11 @@
         android:layout_width="match_parent"
         android:layout_height="650dp"
         android:fillViewport="true">
-
-        <LinearLayout
+        <ListView
+            android:layout_marginTop="60dp"
+            android:id="@+id/cartLv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="50dp">
-
-            <LinearLayout
-                android:id="@+id/dishContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="100dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/dishes_1"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <LinearLayout
-                    android:id="@+id/dishInfoContainer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_marginLeft="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Cháo Sườn Chú Chen"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="70.000"
-                        android:textStyle="bold"
-                        android:textColor="@color/green"
-                        android:textSize="16dp" />
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:padding="10dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="SL: "
-                            android:textSize="22dp"
-                            android:textStyle="bold"/>
-                        <NumberPicker
-                            android:id="@+id/numberPicker1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                             />
-                    </LinearLayout>
-                </RelativeLayout>
-
-            </LinearLayout>
-        </LinearLayout>
+            android:layout_height="wrap_content" />
     </androidx.core.widget.NestedScrollView>
 
     <RelativeLayout
@@ -110,11 +45,12 @@
             >
 
             <TextView
+                android:id="@+id/cartTotalTv"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
                 android:text="Total: "
-                android:textSize="34dp"
+                android:textSize="24dp"
                 android:textStyle="bold" />
 
             <Button

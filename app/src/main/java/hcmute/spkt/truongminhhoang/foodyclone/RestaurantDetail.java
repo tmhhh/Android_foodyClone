@@ -82,9 +82,9 @@ public class RestaurantDetail extends AppCompatActivity {
     private List<Food> getListData() {
         List<Food> list = new ArrayList<Food>();
 
-        list.add(new Food("phobo", "Pho Bo", "Food", "40.000"));
-        list.add(new Food("tobokki", "Tobokki", "Food", "139.000"));
-        list.add(new Food("thaihotpot", "Lau Thai", "Food", "500.000"));
+        list.add(new Food("phobo", "Pho Bo", "Food", 40000));
+        list.add(new Food("tobokki", "Tobokki", "Food", 139000));
+        list.add(new Food("thaihotpot", "Lau Thai", "Food", 500000));
 
         return list;
     }

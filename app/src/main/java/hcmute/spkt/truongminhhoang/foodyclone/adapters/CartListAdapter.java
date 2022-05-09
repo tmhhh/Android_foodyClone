@@ -6,24 +6,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.NumberPicker;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
 import hcmute.spkt.truongminhhoang.foodyclone.R;
 import hcmute.spkt.truongminhhoang.foodyclone.classes.CartItem;
-import hcmute.spkt.truongminhhoang.foodyclone.classes.Food;
-import hcmute.spkt.truongminhhoang.foodyclone.services.CartService;
+import hcmute.spkt.truongminhhoang.foodyclone.classes.Restaurant;
 
-public class FoodListAdapter extends BaseAdapter {
-    private List<Food> listData;
+public class CartListAdapter extends BaseAdapter {
+    private List<CartItem> listData;
     private LayoutInflater layoutInflater;
     private Context context;
 
-    public FoodListAdapter(Context aContext, List<Food> listData) {
+    public CartListAdapter(Context aContext, List<CartItem> listData) {
         this.context = aContext;
         this.listData = listData;
         layoutInflater = LayoutInflater.from(aContext);
@@ -47,36 +45,24 @@ public class FoodListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null) {
-            convertView = layoutInflater.inflate(R.layout.food_list_item_layout, null);
+            convertView = layoutInflater.inflate(R.layout.cart_list_item_layout, null);
             holder = new ViewHolder();
-            holder.image = (ImageView) convertView.findViewById(R.id.foodImage);
-            holder.name = (TextView) convertView.findViewById(R.id.foodNameTv);
-            holder.category = (TextView) convertView.findViewById(R.id.foodCategoryTv);
-            holder.price = (TextView) convertView.findViewById(R.id.foodPriceTv);
+            holder.image = (ImageView) convertView.findViewById(R.id.cartItemImage);
+            holder.name = (TextView) convertView.findViewById(R.id.cartItemNameTv);
+            holder.price = (TextView) convertView.findViewById(R.id.cartItemPriceTv);
+            holder.quantity = (NumberPicker) convertView.findViewById(R.id.cartItemQuantityNumPicker);
 
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        Food food = this.listData.get(position);
+        CartItem item = this.listData.get(position);
+        holder.name.setText(item.getFood().getName());
+        holder.price.setText(Integer.toString(item.getFood().getPrice()) + "$");
+        holder.quantity.setValue(item.getQuantity());
 
-        Button addToCart = (Button) convertView.findViewById(R.id.addToCartBtn);
-        addToCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                CartItem item = new CartItem(food, 1);
-                if (CartService.addToCart(item)) {
-                    Toast.makeText(context, food.getName().toString() + " added", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        holder.name.setText(food.getName());
-        holder.category.setText(food.getCategory());
-        holder.price.setText(food.getPrice() + "$");
-
-        int imageId = this.getMipmapResIdByName(food.getImage());
+        int imageId = this.getMipmapResIdByName(item.getFood().getImage());
 
         holder.image.setImageResource(imageId);
 
@@ -88,14 +74,14 @@ public class FoodListAdapter extends BaseAdapter {
         String pkgName = context.getPackageName();
         // Return 0 if not found.
         int resID = context.getResources().getIdentifier(resName , "drawable", pkgName);
-        Log.i("FoodListView", "Res Name: "+ resName+"==> Res ID = "+ resID);
+        Log.i("RestaurantListView", "Res Name: "+ resName+"==> Res ID = "+ resID);
         return resID;
     }
 
     static class ViewHolder {
         ImageView image;
         TextView name;
-        TextView category;
         TextView price;
+        NumberPicker quantity;
     }
 }
