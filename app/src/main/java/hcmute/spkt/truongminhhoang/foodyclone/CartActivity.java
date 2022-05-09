@@ -30,6 +30,7 @@ public class CartActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityCartBinding binding;
+    TextView totalTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +55,11 @@ public class CartActivity extends AppCompatActivity {
 //        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         List<CartItem> cart = CartService.cart.getList();
         final ListView listView = (ListView) findViewById(R.id.cartLv);
-        listView.setAdapter(new CartListAdapter(this, cart));
+        listView.setAdapter(new CartListAdapter(this, cart, () -> {
+                totalTv.setText("Total: " + Integer.toString(CartService.getTotal()));
+        }));
 
-        TextView totalTv = (TextView) findViewById(R.id.cartTotalTv);
+        totalTv = (TextView) findViewById(R.id.cartTotalTv);
         totalTv.setText("Total: " + Integer.toString(CartService.getTotal()));
     }
 

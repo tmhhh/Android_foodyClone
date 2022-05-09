@@ -6,24 +6,34 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
 import hcmute.spkt.truongminhhoang.foodyclone.R;
 import hcmute.spkt.truongminhhoang.foodyclone.classes.CartItem;
-import hcmute.spkt.truongminhhoang.foodyclone.classes.Restaurant;
+import hcmute.spkt.truongminhhoang.foodyclone.services.CartService;
+
+
 
 public class CartListAdapter extends BaseAdapter {
     private List<CartItem> listData;
     private LayoutInflater layoutInflater;
     private Context context;
+    CartAdapterItemCallback callback;
 
-    public CartListAdapter(Context aContext, List<CartItem> listData) {
+    public interface CartAdapterItemCallback {
+        void updateTotal();
+    }
+
+    public CartListAdapter(Context aContext, List<CartItem> listData, CartAdapterItemCallback callback) {
         this.context = aContext;
         this.listData = listData;
+        this.callback = callback;
         layoutInflater = LayoutInflater.from(aContext);
     }
 
@@ -58,6 +68,19 @@ public class CartListAdapter extends BaseAdapter {
         }
 
         CartItem item = this.listData.get(position);
+
+        ImageButton trashBtn = (ImageButton) convertView.findViewById(R.id.cartTrashBtn);
+        trashBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (CartService.removeCart(item)) {
+                    Toast.makeText(context, item.getFood().getName() + " removed", Toast.LENGTH_SHORT).show();
+                    callback.updateTotal();
+                    notifyDataSetChanged();
+                }
+            }
+        });
+
         holder.name.setText(item.getFood().getName());
         holder.price.setText(Integer.toString(item.getFood().getPrice()) + "$");
         holder.quantity.setValue(item.getQuantity());

@@ -67,7 +67,7 @@ public class FoodListAdapter extends BaseAdapter {
             public void onClick(View view) {
                 CartItem item = new CartItem(food, 1);
                 if (CartService.addToCart(item)) {
-                    Toast.makeText(context, food.getName().toString() + " added", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, food.getName() + " added", Toast.LENGTH_SHORT).show();
                 }
             }
         });

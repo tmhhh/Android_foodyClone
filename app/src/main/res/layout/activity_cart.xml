@@ -54,7 +54,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/btnLogin"
+                android:id="@+id/checkoutBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="10dp"
