@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -49,6 +50,13 @@ public class FoodListAdapter extends BaseAdapter {
             holder.name = (TextView) convertView.findViewById(R.id.foodNameTv);
             holder.category = (TextView) convertView.findViewById(R.id.foodCategoryTv);
             holder.price = (TextView) convertView.findViewById(R.id.foodPriceTv);
+            Button addToCart = (Button) convertView.findViewById(R.id.addToCartBtn);
+            addToCart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
 
             convertView.setTag(holder);
         } else {
