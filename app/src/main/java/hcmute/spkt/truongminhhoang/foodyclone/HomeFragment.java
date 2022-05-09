@@ -1,16 +1,23 @@
 package hcmute.spkt.truongminhhoang.foodyclone;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.text.Editable;
+import android.text.InputType;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -21,7 +28,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hcmute.spkt.truongminhhoang.foodyclone.adapters.RestaurantListAdapter;
+import hcmute.spkt.truongminhhoang.foodyclone.classes.Database;
 import hcmute.spkt.truongminhhoang.foodyclone.classes.Restaurant;
+import hcmute.spkt.truongminhhoang.foodyclone.util.Keyboard;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -70,16 +79,47 @@ public class HomeFragment extends Fragment {
         }
     }
 
+    ListView listView;
+    List<Restaurant> restaurants;
+    Database db;
+    EditText et;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_home, container, false);
-        List<Restaurant> restaurants = getListData();
-        final ListView listView = (ListView) view.findViewById(R.id.restaurantsLv);
-        listView.setAdapter(new RestaurantListAdapter(getActivity(), restaurants));
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        //INITIALIZE VARIABLE
+        listView = (ListView) view.findViewById(R.id.restaurantsLv);
+        et = (EditText) view.findViewById(R.id.etSearch);
+        db = new Database(getActivity(), "Foody.sqlite", null, 1);
+        createRestaurantTable();
+        restaurants = getListData("SELECT * FROM Restaurant");
+        mapListResToView();
+        setListViewHeight();
+        // EVENT
+        //SEARCH INPUT
+        et.setOnEditorActionListener(new EditText.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int id, KeyEvent event) {
+                if (id == EditorInfo.IME_ACTION_DONE) {
+                    String query;
+                    String value = et.getText().toString();
+                    if (value.isEmpty()) {
+                        query = "SELECT * FROM Restaurant";
+                    } else {
+                        query = "SELECT * FROM Restaurant WHERE name LIKE '%" + value + "%'";
+                    }
+                    Cursor cursor = db.GetData(query);
+                    restaurants.clear();
+                    restaurants = getListData(query);
+                    mapListResToView();
+                    Keyboard.hideKeyboard(getActivity());
+                    return true;
+                }
+                return false;
+            }
+        });
 
-        // When the user clicks on the ListItem
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -91,16 +131,48 @@ public class HomeFragment extends Fragment {
                 getActivity().startActivity(myIntent);
             }
         });
-
-            return view;
+        return view;
     }
-    private List<Restaurant> getListData() {
+
+    private void createRestaurantTable() {
+        String createRestaurantQuery = "CREATE TABLE IF NOT EXISTS Restaurant(Id INTEGER PRIMARY KEY AUTOINCREMENT, image VARCHAR(200), name NVARCHAR(200), category VARCHAR(200), avgPrice VARCHAR(200), address NVARCHAR(200))";
+        db.QueryData(createRestaurantQuery);
+    }
+
+    private void insertRestaurantData() {
+//        String query = "INSERT INTO Restaurant VALUES(null,'pho24','Phở Ông Hùng', 'Food', '40.000', '66 Ngô Đức Kế, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh')";
+//        String query = "INSERT INTO Restaurant VALUES(null,'dookki','Dokki', 'Food', '130.000', '11 Sư Vạn Hạnh, Phường 12, Quận 10, Thành phố Hồ Chí Minh')";
+        String query = "INSERT INTO Restaurant VALUES(null,'hadilao','Hadilao', 'Food', '500.000', 'Thành phố Hồ Chí Minh, Quận 1, Lê Thánh Tôn, L3-8')";
+
+        db.QueryData(query);
+    }
+
+
+    private void setListViewHeight() {
+        int itemHeight = 400;
+        listView.getLayoutParams().height = restaurants.size() * itemHeight;
+
+    }
+
+    private List<Restaurant> getListData(String query) {
         List<Restaurant> list = new ArrayList<Restaurant>();
-
-        list.add(new Restaurant("res1" ,"pho24", "Pho 24", "Food", "40.000", "Nhiều chi nhánh"));
-        list.add(new Restaurant("res2" ,"dookki", "Dookki", "Food", "139.000", "Nhiều chi nhánh"));
-        list.add(new Restaurant("res3" ,"hadilao", "Hadilao", "Food", "500.000", "Nhiều chi nhánh"));
-
+        Cursor cursor = db.GetData(query);
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            String image = cursor.getString(1);
+            String name = cursor.getString(2);
+            String cate = cursor.getString(3);
+            String avgPrice = cursor.getString(4);
+            String address = cursor.getString(5);
+            list.add(new Restaurant(id, image, name, cate, avgPrice, address));
+        }
         return list;
     }
+
+    private void mapListResToView() {
+        listView.setAdapter(new RestaurantListAdapter(getActivity(), restaurants));
+
+    }
+
+
 }

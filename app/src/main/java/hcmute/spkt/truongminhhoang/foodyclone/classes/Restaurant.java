@@ -5,14 +5,14 @@ import androidx.annotation.NonNull;
 import java.io.Serializable;
 
 public class Restaurant implements Serializable {
-    public String id;
+    public int id;
     public String image;
     public String name;
     public String category;
     public String avgPrice;
     public String address;
 
-    public Restaurant(String id, String image, String name, String category, String avgPrice, String address) {
+    public Restaurant(int id, String image, String name, String category, String avgPrice, String address) {
         this.id = id;
         this.image = image;
         this.name = name;
@@ -21,11 +21,11 @@ public class Restaurant implements Serializable {
         this.address = address;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

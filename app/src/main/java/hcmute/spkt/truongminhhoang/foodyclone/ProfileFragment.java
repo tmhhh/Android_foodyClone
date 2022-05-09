@@ -1,5 +1,9 @@
 package hcmute.spkt.truongminhhoang.foodyclone;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -55,10 +59,34 @@ public class ProfileFragment extends Fragment {
         }
     }
 
+    View btnLogout;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        btnLogout = view.findViewById(R.id.btnLogout);
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RemoveAccountFromSharePreferences();
+                Intent myIntent = new Intent(getActivity(), UnauthorizedActivity.class);
+                getActivity().startActivity(myIntent);
+            }
+        });
+
+        return view;
+    }
+
+    private void RemoveAccountFromSharePreferences() {
+//        SharedPreferences prefs = getActivity().getSharedPreferences("authentication", MODE_PRIVATE);
+//        String username = prefs.getString("username", "No name defined");//"No name defined" is the default value.
+//        String password = prefs.getString("password", ""); //0 is the default value.    }
+
+        SharedPreferences myPrefs = getActivity().getSharedPreferences("authentication", MODE_PRIVATE);
+        myPrefs.edit().remove("username").apply();
+        myPrefs.edit().remove("password").apply();
     }
 }

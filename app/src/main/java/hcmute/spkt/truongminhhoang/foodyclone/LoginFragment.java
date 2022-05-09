@@ -1,6 +1,9 @@
 package hcmute.spkt.truongminhhoang.foodyclone;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 
@@ -97,6 +100,7 @@ public class LoginFragment extends Fragment {
                 Cursor cursor=db.GetData(checkAccountExistQuery);
                 if(cursor.getCount()>0){
                     Toast.makeText(getActivity(), "Login successfully !!!", Toast.LENGTH_SHORT).show();
+                    SaveAccountToSharePreferences(userName,password);
                     Intent myIntent = new Intent(getActivity(), MainActivity.class);
                     getActivity().startActivity(myIntent);
                 }
@@ -121,5 +125,12 @@ public class LoginFragment extends Fragment {
         });
 
         return view;
+    }
+    private void SaveAccountToSharePreferences(String username,String password){
+        SharedPreferences.Editor editor = getActivity().getSharedPreferences("authentication", MODE_PRIVATE).edit();
+        editor.putString("username", username);
+        editor.putString("password", password);
+        editor.apply();
+
     }
 }

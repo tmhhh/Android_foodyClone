@@ -41,13 +41,21 @@
             android:theme="@style/Theme.FoodyClone.NoActionBar">
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".UnauthorizedActivity"
+            android:exported="true"
+            android:label="@string/title_activity_restaurant_detail"
+            android:theme="@style/Theme.FoodyClone.NoActionBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
         </activity>
     </application>
 

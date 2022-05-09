@@ -74,7 +74,8 @@ public class SignupFragment extends Fragment {
         EditText etUserName= view.findViewById(R.id.etUsername);
         EditText etFullName= view.findViewById(R.id.etFullName);
         EditText etPassword= view.findViewById(R.id.etPassword);
-
+        EditText etAddress=view.findViewById(R.id.etAddress);
+        EditText etPhoneNumber=view.findViewById(R.id.etPhonenumber);
         //
         tvLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +94,8 @@ public class SignupFragment extends Fragment {
                 String userName = etUserName.getText().toString();
                 String fullName = etFullName.getText().toString();
                 String password = etPassword.getText().toString();
+                String address=etAddress.getText().toString();
+                String phonenumber=etAddress.getText().toString();
                 //CHECK INPUT EMPTY
                 if(userName.trim().isEmpty()){
                     etUserName.setError("This field is required !!!");
@@ -102,8 +105,16 @@ public class SignupFragment extends Fragment {
                     etFullName.setError("This field is required !!!");
                     isError=true;
                 }
+                if(address.trim().isEmpty()){
+                    etAddress.setError("This field is required !!!");
+                    isError=true;
+                }
                 if(password.trim().isEmpty()){
                     etPassword.setError("This field is required !!!");
+                    isError=true;
+                }
+                if(phonenumber.trim().isEmpty()){
+                    etPhoneNumber.setError("This field is required !!!");
                     isError=true;
                 }
                 if(isError) return;

@@ -17,7 +17,7 @@ public class UnauthorizedActivity extends AppCompatActivity {
         //INIT DB
         db=new Database(this,"Foody.sqlite",null,1);
         //CREATE USER TABLE
-        String createUserQuery="CREATE TABLE IF NOT EXISTS User(Id INTEGER PRIMARY KEY AUTOINCREMENT, userName VARCHAR(200), fullName VARCHAR(200), password VARCHAR(200))";
+        String createUserQuery="CREATE TABLE IF NOT EXISTS User(Id INTEGER PRIMARY KEY AUTOINCREMENT, userName VARCHAR(200), fullName VARCHAR(200), password VARCHAR(200), phone INTEGER, address NVARCHAR(200))";
         db.QueryData(createUserQuery);
 
         // FRAGMENT NAVIGATE
