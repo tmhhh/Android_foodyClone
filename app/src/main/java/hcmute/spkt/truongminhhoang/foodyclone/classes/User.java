@@ -1,15 +1,17 @@
 package hcmute.spkt.truongminhhoang.foodyclone.classes;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private int id;
     private String userName;
     private String fullName;
     private String password;
-    private int phone;
+    private String phone;
     private String address;
 
 
-    public User(int id, String userName, String fullName, String password, int phone, String address) {
+    public User(int id, String userName, String fullName, String password, String phone, String address) {
         this.id = id;
         this.userName = userName;
         this.fullName = fullName;
@@ -50,11 +52,11 @@ public class User {
         this.password = password;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

@@ -30,6 +30,7 @@ import java.util.List;
 import hcmute.spkt.truongminhhoang.foodyclone.adapters.RestaurantListAdapter;
 import hcmute.spkt.truongminhhoang.foodyclone.classes.Database;
 import hcmute.spkt.truongminhhoang.foodyclone.classes.Restaurant;
+import hcmute.spkt.truongminhhoang.foodyclone.classes.User;
 import hcmute.spkt.truongminhhoang.foodyclone.util.Keyboard;
 
 /**
@@ -83,17 +84,25 @@ public class HomeFragment extends Fragment {
     List<Restaurant> restaurants;
     Database db;
     EditText et;
+    TextView tvUserAddress;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         //INITIALIZE VARIABLE
-        listView = (ListView) view.findViewById(R.id.restaurantsLv);
         et = (EditText) view.findViewById(R.id.etSearch);
+        tvUserAddress = view.findViewById(R.id.userAddress);
         db = new Database(getActivity(), "Foody.sqlite", null, 1);
-        createRestaurantTable();
+        Intent intent = getActivity().getIntent();
+        User currentUser = (User) intent.getSerializableExtra("userInfo");
+        tvUserAddress.setText("To " + currentUser.getAddress());
+        listView = (ListView) view.findViewById(R.id.restaurantsLv);
         restaurants = getListData("SELECT * FROM Restaurant");
+
+//        insertRestaurantData();
+        createRestaurantTable();
         mapListResToView();
         setListViewHeight();
         // EVENT
@@ -142,9 +151,14 @@ public class HomeFragment extends Fragment {
     private void insertRestaurantData() {
 //        String query = "INSERT INTO Restaurant VALUES(null,'pho24','Phở Ông Hùng', 'Food', '40.000', '66 Ngô Đức Kế, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh')";
 //        String query = "INSERT INTO Restaurant VALUES(null,'dookki','Dokki', 'Food', '130.000', '11 Sư Vạn Hạnh, Phường 12, Quận 10, Thành phố Hồ Chí Minh')";
-        String query = "INSERT INTO Restaurant VALUES(null,'hadilao','Hadilao', 'Food', '500.000', 'Thành phố Hồ Chí Minh, Quận 1, Lê Thánh Tôn, L3-8')";
-
-        db.QueryData(query);
+//        String query = "INSERT INTO Restaurant VALUES(null,'hadilao','Hadilao', 'Food', '500.000', 'Thành phố Hồ Chí Minh, Quận 1, Lê Thánh Tôn, L3-8')";
+        List<String> listQuery = new ArrayList<String>();
+        listQuery.add("INSERT INTO Restaurant VALUES(null,'pho24','Phở Ông Hùng', 'Food', '40.000', '66 Ngô Đức Kế, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh')");
+        listQuery.add("INSERT INTO Restaurant VALUES(null,'dookki','Dokki', 'Food', '130.000', '11 Sư Vạn Hạnh, Phường 12, Quận 10, Thành phố Hồ Chí Minh')");
+        listQuery.add("INSERT INTO Restaurant VALUES(null,'hadilao','Hadilao', 'Food', '500.000', 'Thành phố Hồ Chí Minh, Quận 1, Lê Thánh Tôn, L3-8')");
+        for (String query : listQuery) {
+            db.QueryData(query);
+        }
     }
 
 

@@ -42,6 +42,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/ic_baseline_supervised_user_circle_24"
+                android:layout_marginRight="5dp"
                 />
             <TextView
                 android:layout_width="match_parent"
@@ -52,7 +53,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/userAccount"
+            android:id="@+id/tvUserName"
             android:layout_width="03dp"
             android:layout_height="wrap_content"
             android:layout_weight="6"
@@ -80,6 +81,8 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/ic_baseline_perm_identity_24"
+                android:layout_marginRight="5dp"
+
                 />
             <TextView
                 android:layout_width="match_parent"
@@ -90,10 +93,10 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/userName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="7"
+            android:id="@+id/tvUserFullName"
             android:text="Trương Minh Hoàng"
             android:textSize="18dp"
             android:textStyle="bold" />
@@ -117,6 +120,8 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/ic_baseline_local_phone_24"
+                android:layout_marginRight="5dp"
+
                 />
             <TextView
                 android:layout_width="match_parent"
@@ -126,7 +131,7 @@
 
         </LinearLayout>
         <TextView
-            android:id="@+id/userPhone"
+            android:id="@+id/tvUserPhone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="7"
@@ -155,6 +160,8 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/ic_baseline_home_work_24"
+                android:layout_marginRight="5dp"
+
                 />
             <TextView
                 android:layout_width="match_parent"
@@ -165,7 +172,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/userAddress"
+            android:id="@+id/tvUserAddress"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="7"
