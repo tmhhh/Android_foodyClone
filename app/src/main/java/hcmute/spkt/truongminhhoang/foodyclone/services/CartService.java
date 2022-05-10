@@ -16,7 +16,11 @@ public class CartService {
         return cart.removeCart(item);
     }
 
+    public static boolean updateCart(CartItem item, int quantity) { return cart.updateCart(item, quantity); }
+
     public static int getTotal() {
         return cart.getTotal();
     }
+
+    public static boolean checkout() {return true;}
 }

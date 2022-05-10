@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
@@ -60,7 +61,7 @@ public class CartListAdapter extends BaseAdapter {
             holder.image = (ImageView) convertView.findViewById(R.id.cartItemImage);
             holder.name = (TextView) convertView.findViewById(R.id.cartItemNameTv);
             holder.price = (TextView) convertView.findViewById(R.id.cartItemPriceTv);
-            holder.quantity = (NumberPicker) convertView.findViewById(R.id.cartItemQuantityNumPicker);
+            holder.quantity = (EditText) convertView.findViewById(R.id.cartItemQuantityEt);
 
             convertView.setTag(holder);
         } else {
@@ -69,6 +70,7 @@ public class CartListAdapter extends BaseAdapter {
 
         CartItem item = this.listData.get(position);
 
+        // Handler remove cart item
         ImageButton trashBtn = (ImageButton) convertView.findViewById(R.id.cartTrashBtn);
         trashBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,9 +83,37 @@ public class CartListAdapter extends BaseAdapter {
             }
         });
 
+        // Handler increase quantity
+        ImageButton plusBtn = (ImageButton) convertView.findViewById(R.id.cartPlusBtn);
+        plusBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (CartService.updateCart(item, item.getQuantity() + 1)) {
+                    Toast.makeText(context, item.getFood().getName() + " quantity increased", Toast.LENGTH_SHORT).show();
+                    callback.updateTotal();
+                    notifyDataSetChanged();
+                }
+            }
+        });
+
+        // Handler decrease quantity
+        ImageButton minusBtn = (ImageButton) convertView.findViewById(R.id.cartMinusBtn);
+        minusBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (item.getQuantity() != 1){
+                    if (CartService.updateCart(item, item.getQuantity() - 1)) {
+                        Toast.makeText(context, item.getFood().getName() + " quantity decreased", Toast.LENGTH_SHORT).show();
+                        callback.updateTotal();
+                        notifyDataSetChanged();
+                    }
+                }
+            }
+        });
+
         holder.name.setText(item.getFood().getName());
         holder.price.setText(Integer.toString(item.getFood().getPrice()) + "$");
-        holder.quantity.setValue(item.getQuantity());
+        holder.quantity.setText(Integer.toString(item.getQuantity()));
 
         int imageId = this.getMipmapResIdByName(item.getFood().getImage());
 
@@ -105,6 +135,6 @@ public class CartListAdapter extends BaseAdapter {
         ImageView image;
         TextView name;
         TextView price;
-        NumberPicker quantity;
+        EditText quantity;
     }
 }

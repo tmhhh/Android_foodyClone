@@ -7,8 +7,11 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.NavController;
@@ -61,6 +64,16 @@ public class CartActivity extends AppCompatActivity {
 
         totalTv = (TextView) findViewById(R.id.cartTotalTv);
         totalTv.setText("Total: " + Integer.toString(CartService.getTotal()));
+
+        Button plusBtn = (Button) findViewById(R.id.checkoutBtn);
+        plusBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (CartService.checkout()) {
+                    Toast.makeText(CartActivity.this, "Checkout successfully", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override

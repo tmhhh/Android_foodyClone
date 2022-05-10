@@ -16,7 +16,7 @@
             android:id="@+id/cartToolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/red"
             app:popupTheme="@style/Theme.FoodyClone.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>

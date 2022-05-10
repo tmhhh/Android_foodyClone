@@ -34,10 +34,26 @@ public class Cart {
     }
 
     public boolean addToCart(CartItem item) {
+        for(CartItem listItem: this.list) {
+            if (listItem.getFood().equals(item.getFood())) {
+                listItem.setQuantity(listItem.getQuantity() + 1);
+                return true;
+            }
+        }
         return this.list.add(item);
     }
 
     public boolean removeCart(CartItem item) {
         return this.list.remove(item);
+    }
+
+    public boolean updateCart(CartItem item, int quantity) {
+        for(CartItem listItem: this.list) {
+            if (listItem.getFood().equals(item.getFood())) {
+                listItem.setQuantity(quantity);
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -81,7 +81,6 @@ public class RestaurantsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 Restaurant restaurant = (Restaurant) listView.getItemAtPosition(position);
-                Toast.makeText(getActivity(), "Selected :" + " " + restaurant.toString(), Toast.LENGTH_SHORT).show();
                 Intent myIntent = new Intent(getActivity(), RestaurantDetail.class);
                 myIntent.putExtra("restaurant", restaurant);
                 getActivity().startActivity(myIntent);
