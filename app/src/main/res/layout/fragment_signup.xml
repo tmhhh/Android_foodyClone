@@ -10,7 +10,7 @@
         android:id="@+id/logo"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="120dp"
         android:src="@drawable/foody_logo"
         app:layout_constraintTop_toTopOf="parent"
         />
@@ -128,7 +128,6 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_marginBottom="5dp"
-
             />
         <EditText
             android:id="@+id/etPhoneNumber"

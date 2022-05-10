@@ -40,14 +40,14 @@ public class UnauthorizedActivity extends AppCompatActivity {
                     myIntent.putExtra("userInfo", loginUser);
                     this.startActivity(myIntent);
                 }
-
+                return;
             }
-        } else {
+        }
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.authorizeLayout, new LoginFragment());
             fragmentTransaction.commit();
-        }
+
 
 
     }
