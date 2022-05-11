@@ -93,9 +93,9 @@ public class RestaurantsFragment extends Fragment {
     private List<Restaurant> getListData() {
         List<Restaurant> list = new ArrayList<Restaurant>();
 
-        list.add(new Restaurant("res1" ,"pho24", "Pho 24", "Food", "40.000", "Nhiều chi nhánh"));
-        list.add(new Restaurant("res2" ,"dookki", "Dookki", "Food", "139.000", "Nhiều chi nhánh"));
-        list.add(new Restaurant("res3" ,"hadilao", "Hadilao", "Food", "500.000", "Nhiều chi nhánh"));
+//        list.add(new Restaurant("res1" ,"pho24", "Pho 24", "Food", "40.000", "Nhiều chi nhánh"));
+//        list.add(new Restaurant("res2" ,"dookki", "Dookki", "Food", "139.000", "Nhiều chi nhánh"));
+//        list.add(new Restaurant("res3" ,"hadilao", "Hadilao", "Food", "500.000", "Nhiều chi nhánh"));
 
         return list;
     }

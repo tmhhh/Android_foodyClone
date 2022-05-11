@@ -47,7 +47,7 @@ public class RestaurantListAdapter extends BaseAdapter {
             holder = new ViewHolder();
             holder.image = (ImageView) convertView.findViewById(R.id.restaurantImage);
             holder.name = (TextView) convertView.findViewById(R.id.restaurantNameTv);
-            holder.category = (TextView) convertView.findViewById(R.id.restaurantCategoryTv);
+//            holder.category = (ImageView) convertView.findViewById(R.id.restaurantCate);
             holder.avgPrice = (TextView) convertView.findViewById(R.id.restaurantAvgPriceTv);
             holder.address = (TextView) convertView.findViewById(R.id.restaurantAddressTv);
 
@@ -58,12 +58,12 @@ public class RestaurantListAdapter extends BaseAdapter {
 
         Restaurant restaurant = this.listData.get(position);
         holder.name.setText(restaurant.getName());
-        holder.category.setText(restaurant.getCategory());
-        holder.avgPrice.setText("Avg price: " + restaurant.getAvgPrice());
-        holder.address.setText("Address: " + restaurant.getAddress());
+        holder.avgPrice.setText("~" + restaurant.getAvgPrice()+" VND");
+        holder.address.setText(restaurant.getAddress());
 
         int imageId = this.getMipmapResIdByName(restaurant.getImage());
-
+//        int cateImage=this.getMipmapResIdByName(restaurant.getCategory());
+//        holder.category.setImageResource(cateImage);
         holder.image.setImageResource(imageId);
 
         return convertView;
@@ -81,7 +81,7 @@ public class RestaurantListAdapter extends BaseAdapter {
     static class ViewHolder {
         ImageView image;
         TextView name;
-        TextView category;
+//        ImageView category;
         TextView avgPrice;
         TextView address;
     }

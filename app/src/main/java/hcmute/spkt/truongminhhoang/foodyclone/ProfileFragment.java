@@ -1,5 +1,9 @@
 package hcmute.spkt.truongminhhoang.foodyclone;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +11,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import hcmute.spkt.truongminhhoang.foodyclone.classes.Restaurant;
+import hcmute.spkt.truongminhhoang.foodyclone.classes.User;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,10 +63,48 @@ public class ProfileFragment extends Fragment {
         }
     }
 
+    View btnLogout;
+TextView tvUsername;
+    TextView tvFullName;
+    TextView tvPhone;
+    TextView tvAddress;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        btnLogout = view.findViewById(R.id.btnLogout);
+        tvUsername=view.findViewById(R.id.tvUserName);
+        tvFullName=view.findViewById(R.id.tvUserFullName);
+        tvPhone=view.findViewById(R.id.tvUserPhone);
+        tvAddress=view.findViewById(R.id.tvUserAddress);
+
+        Intent intent = getActivity().getIntent();
+        User currentUser =(User) intent.getSerializableExtra("userInfo");
+        tvUsername.setText(currentUser.getUserName());
+        tvFullName.setText(currentUser.getFullName());
+        tvPhone.setText(currentUser.getPhone());
+        tvAddress.setText(currentUser.getAddress());
+
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RemoveAccountFromSharePreferences();
+                Intent myIntent = new Intent(getActivity(), UnauthorizedActivity.class);
+                getActivity().startActivity(myIntent);
+            }
+        });
+
+        return view;
+    }
+
+    private void RemoveAccountFromSharePreferences() {
+
+        SharedPreferences myPrefs = getActivity().getSharedPreferences("authentication", MODE_PRIVATE);
+        myPrefs.edit().remove("username").apply();
+        myPrefs.edit().remove("password").apply();
     }
 }

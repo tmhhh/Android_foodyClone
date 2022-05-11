@@ -1,12 +1,22 @@
 package hcmute.spkt.truongminhhoang.foodyclone;
 
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import hcmute.spkt.truongminhhoang.foodyclone.classes.Database;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,6 +56,8 @@ public class SignupFragment extends Fragment {
         return fragment;
     }
 
+    Database db;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +70,71 @@ public class SignupFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        db = new Database(getActivity(), "Foody.sqlite", null, 1);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_signup, container, false);
+        View view = (View) inflater.inflate(R.layout.fragment_signup, container, false);
+        Button btnSignUp = view.findViewById(R.id.btnSignup);
+        TextView tvLogin = view.findViewById(R.id.tvLogin);
+        EditText etUserName = view.findViewById(R.id.etUsername);
+        EditText etFullName = view.findViewById(R.id.etFullName);
+        EditText etPassword = view.findViewById(R.id.etPassword);
+        EditText etAddress = view.findViewById(R.id.etAddress);
+        EditText etPhoneNumber = view.findViewById(R.id.etPhoneNumber);
+        //
+        tvLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.authorizeLayout, new LoginFragment());
+                fragmentTransaction.commit();
+            }
+        });
+        //
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean isError = false;
+                String userName = etUserName.getText().toString();
+                String fullName = etFullName.getText().toString();
+                String password = etPassword.getText().toString();
+                String address = etAddress.getText().toString();
+                String phoneNumber = etPhoneNumber.getText().toString();
+                //CHECK INPUT EMPTY
+                if (userName.trim().isEmpty()) {
+                    etUserName.setError("This field is required !!!");
+                    isError = true;
+                }
+                if (fullName.trim().isEmpty()) {
+                    etFullName.setError("This field is required !!!");
+                    isError = true;
+                }
+                if (address.trim().isEmpty()) {
+                    etAddress.setError("This field is required !!!");
+                    isError = true;
+                }
+                if (password.trim().isEmpty()) {
+                    etPassword.setError("This field is required !!!");
+                    isError = true;
+                }
+                if(phoneNumber.trim().isEmpty()){
+                    etPhoneNumber.setError("This field is required !!!");
+                    isError=true;
+                }
+                if (isError) return;
+
+                String checkAccountExistQuery = "SELECT * FROM User WHERE userName='" + userName + "'";
+                Cursor cursor = db.GetData(checkAccountExistQuery);
+                if (cursor.getCount() == 0) {
+                    String registerAccountQuery = "INSERT INTO User VALUES(null,'" + userName + "','" + fullName + "','" + password + "','" + phoneNumber + "','" + address + "')";
+                    db.QueryData(registerAccountQuery);
+                    Toast.makeText(getActivity(), "Register successfully !!!", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(getActivity(), "This account has already existed !!!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        return view;
     }
 }
