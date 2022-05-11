@@ -258,7 +258,7 @@ public class HomeFragment extends Fragment {
 
     private void createRestaurantTable() {
         String createRestaurantQuery = "CREATE TABLE IF NOT EXISTS Restaurant(Id INTEGER PRIMARY KEY, image VARCHAR(200), name NVARCHAR(200), category VARCHAR(200), avgPrice VARCHAR(200), address NVARCHAR(200))";
-//        db.QueryData("DROP TABLE IF EXISTS Restaurant");
+        db.QueryData("DROP TABLE IF EXISTS Restaurant");
         db.QueryData(createRestaurantQuery);
     }
 
