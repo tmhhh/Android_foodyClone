@@ -59,11 +59,11 @@ public class CartActivity extends AppCompatActivity {
         List<CartItem> cart = CartService.cart.getList();
         final ListView listView = (ListView) findViewById(R.id.cartLv);
         listView.setAdapter(new CartListAdapter(this, cart, () -> {
-                totalTv.setText("Total: " + Integer.toString(CartService.getTotal()));
+                totalTv.setText("Total: " + Integer.toString(CartService.getTotal()) + "$");
         }));
 
         totalTv = (TextView) findViewById(R.id.cartTotalTv);
-        totalTv.setText("Total: " + Integer.toString(CartService.getTotal()));
+        totalTv.setText("Total: " + Integer.toString(CartService.getTotal()) + "$");
 
         Button plusBtn = (Button) findViewById(R.id.checkoutBtn);
         plusBtn.setOnClickListener(new View.OnClickListener() {

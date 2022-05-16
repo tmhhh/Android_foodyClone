@@ -14,7 +14,7 @@
     <string name="payments_show_name" translatable="false">Successfully received payment data for
         %s!
     </string>
-    <string name="title_activity_cart">CartActivity</string>
+    <string name="title_activity_cart">Food Cart</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
