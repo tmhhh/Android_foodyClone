@@ -111,6 +111,8 @@ public class CartListAdapter extends BaseAdapter {
             }
         });
 
+//        EditText quantityEditView = (EditText) convertView.findViewById(R.id.cartItemQuantityEt);
+
         holder.name.setText(item.getFood().getName());
         holder.price.setText(Integer.toString(item.getFood().getPrice()) + "$");
         holder.quantity.setText(Integer.toString(item.getQuantity()));

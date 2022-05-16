@@ -35,7 +35,7 @@ public class Cart {
 
     public boolean addToCart(CartItem item) {
         for(CartItem listItem: this.list) {
-            if (listItem.getFood().equals(item.getFood())) {
+            if (listItem.getFood().getName().equals(item.getFood().getName())) {
                 listItem.setQuantity(listItem.getQuantity() + 1);
                 return true;
             }
